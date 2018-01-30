@@ -10,3 +10,41 @@ var employees = [ atticus, jem, boo, scout, robert, mayella ];
 // YOU SHOULD NOT NEED TO CHANGE ANYTHING ABOVE THIS POINT
 
 console.log(employees);
+
+function calcBonus(empObject) {
+  var bonusPerc = 0;
+  if (empObject.reviewRating <=2){
+    bonusPerc = 0;
+  } else if (empObject.reviewRating === 3) {
+    bonusPerc = 0.04;
+  } else if (empObject.reviewRating === 4) {
+    bonusPerc = 0.06;
+  } else {
+    bonusPerc = 0.10;
+  }
+  if (empObject.employeeNumber < 10000) {
+    bonusPerc += 0.05;
+  }
+  if (empObject.annualSalary >= 65000) {
+    bonusPerc -= 0.01;
+  }
+  if (bonusPerc >= 0.13) {
+    bonusPerc = 0.13;
+  } else if (bonusPerc <= 0) {
+    bonusPerc = 0;
+  }
+  var subBonus = (bonusPerc*empObject.annualSalary);
+  var tBonus = Math.round(subBonus);
+  var totalComp = (parseInt(empObject.annualSalary)+subBonus);
+
+  // console.log(bonusPerc);
+  // console.log(totalComp);
+  // console.log(totalBonus);
+  var empBonus = {
+    name: empObject.name,
+    bonusPercentage: bonusPerc,
+    totalCompensation: totalComp,
+    totalBonus: tBonus
+  };
+console.log(empBonus);  
+}
