@@ -21,6 +21,7 @@ function runCalc(){
   calcBonus(employees);
 }
 
+
 function calcBonus(employeeArray) {
 
 for (var i = 0; i < employeeArray.length; i++){
@@ -59,5 +60,9 @@ for (var i = 0; i < employeeArray.length; i++){
     totalBonus: tBonus
   };
 console.log(empBonus);
+
+document.write(
+  JSON.stringify(empBonus));
 }
+
 }
