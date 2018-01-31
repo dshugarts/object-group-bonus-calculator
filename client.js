@@ -11,6 +11,16 @@ var employees = [ atticus, jem, boo, scout, robert, mayella ];
 
 console.log(employees);
 
+$(document).ready(function() {
+console.log('inJQ');
+
+$('#runBonus').on('click', runCalc);
+});
+
+function runCalc(){
+  calcBonus(employees);
+}
+
 function calcBonus(employeeArray) {
 
 for (var i = 0; i < employeeArray.length; i++){
